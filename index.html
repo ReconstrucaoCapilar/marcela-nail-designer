@@ -169,7 +169,7 @@
 /* Hero mobile repair: keep the embedded hero visible, less cropped, with fallback. */
 @media(max-width:760px){
   .hero{min-height:92svh!important;background-size:cover!important;background-position:62% center!important;background-repeat:no-repeat!important}
-  .hero:before{background:linear-gradient(90deg,rgba(14,7,7,.88) 0%,rgba(14,7,7,.66) 43%,rgba(14,7,7,.18) 78%,rgba(14,7,7,.06) 100%)!important}
+  .hero:before{background-image:linear-gradient(90deg,rgba(14,7,7,.88) 0%,rgba(14,7,7,.66) 43%,rgba(14,7,7,.18) 78%,rgba(14,7,7,.06) 100%),url('assets/image-01.webp')!important;background-size:cover!important;background-position:62% center!important;background-repeat:no-repeat!important}
   .academy-section{padding:72px 20px}
   .academy-shell{grid-template-columns:1fr;gap:35px}
   .academy-visual{min-height:440px}
@@ -185,7 +185,7 @@
   .academy-offer button{flex:1;padding:16px 13px;font-size:.68rem}
 }
 @media(max-width:420px){
-  .hero{background-position:66% center!important}
+  .hero:before{background-position:66% center!important}
   .academy-offer{display:block}
   .academy-offer button{width:100%;margin-top:20px}
 }
@@ -309,7 +309,7 @@
           <div class="proof"><span>♡</span><div><b>Experiência</b><small>personalizada</small></div></div>
         </div>
       </div>
-      <div class="hero-note reveal"><span>Beleza que permanece</span><p>“Seu estilo traduzido em cada acabamento.”</p></div>
+      <div class="hero-note reveal"><span>Beleza que permanece</span><p>"Seu estilo traduzido em cada acabamento."</p></div>
     </div>
   </section>
 
@@ -385,7 +385,7 @@
   <section class="about" id="sobre">
     <div class="container about-grid">
       <div class="about-image reveal"><img src="assets/image-12.png" alt="Marcella Gonçalves, Nail Designer" loading="lazy"><div class="about-badge"><strong>MG</strong><span>beleza, técnica e confiança</span></div></div>
-      <div class="about-copy reveal"><div class="eyebrow">Marcella Gonçalves</div><h2 class="section-title">Cuidado profissional, com identidade.</h2><p class="lead">À frente do Studio Marcella Gonçalves, Marcella une prática, técnica e olhar estético em atendimentos e formações voltados para mulheres que valorizam qualidade.</p><blockquote>“Cuidar de você também é a minha especialidade.”</blockquote><button class="btn btn-primary" data-flow="agendamento">Quero marcar meu horário</button></div>
+      <div class="about-copy reveal"><div class="eyebrow">Marcella Gonçalves</div><h2 class="section-title">Cuidado profissional, com identidade.</h2><p class="lead">À frente do Studio Marcella Gonçalves, Marcella une prática, técnica e olhar estético em atendimentos e formações voltados para mulheres que valorizam qualidade.</p><blockquote>"Cuidar de você também é a minha especialidade."</blockquote><button class="btn btn-primary" data-flow="agendamento">Quero marcar meu horário</button></div>
     </div>
   </section>
 
@@ -395,10 +395,10 @@
 <section class="testimonials" id="avaliacoes">
     <div class="container"><div class="section-head reveal"><div><div class="eyebrow" style="color:#dca39e">O que elas dizem</div><h2 class="section-title">Clientes reais. Experiências que ficam.</h2></div></div>
       <div class="testimonial-grid reveal">
-        <article class="quote"><div class="stars">★★★★★</div><p>“Atendimento impecável, muito capricho e um resultado lindo. Dá para perceber o cuidado em cada etapa.”</p><b>Camila</b><br><span>Cliente</span></article>
-        <article class="quote"><div class="stars">★★★★★</div><p>“Ambiente agradável, atendimento delicado e acabamento maravilhoso. Saí exatamente como queria.”</p><b>Juliana</b><br><span>Cliente</span></article>
-        <article class="quote"><div class="stars">★★★★★</div><p>“Trabalho muito bem feito, profissionalismo e atenção aos detalhes. Recomendo demais.”</p><b>Fernanda</b><br><span>Cliente</span></article>
-        <article class="quote"><div class="stars">★★★★★</div><p>“Resultado lindo e atendimento super cuidadoso. Foi uma experiência muito gostosa.”</p><b>Aline</b><br><span>Cliente</span></article>
+        <article class="quote"><div class="stars">★★★★★</div><p>"Atendimento impecável, muito capricho e um resultado lindo. Dá para perceber o cuidado em cada etapa."</p><b>Camila</b><br><span>Cliente</span></article>
+        <article class="quote"><div class="stars">★★★★★</div><p>"Ambiente agradável, atendimento delicado e acabamento maravilhoso. Saí exatamente como queria."</p><b>Juliana</b><br><span>Cliente</span></article>
+        <article class="quote"><div class="stars">★★★★★</div><p>"Trabalho muito bem feito, profissionalismo e atenção aos detalhes. Recomendo demais."</p><b>Fernanda</b><br><span>Cliente</span></article>
+        <article class="quote"><div class="stars">★★★★★</div><p>"Resultado lindo e atendimento super cuidadoso. Foi uma experiência muito gostosa."</p><b>Aline</b><br><span>Cliente</span></article>
       </div>
     </div>
   </section>
