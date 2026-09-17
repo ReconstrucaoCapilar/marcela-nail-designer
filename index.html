@@ -279,6 +279,20 @@
 }
 </style>
 
+
+<style>
+/* Portfólio mobile: movimento automático contínuo */
+@media (max-width:620px){
+  .portfolio .gallery{
+    scroll-snap-type:none;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+  .portfolio .gallery::-webkit-scrollbar{display:none}
+  .portfolio .gallery .shot{flex:0 0 82vw}
+}
+</style>
+
 </head>
 <body>
 <header id="header">
@@ -470,6 +484,70 @@ function openLeadModal(type){
     : `Olá! Meu nome é ${name.trim()}. Gostaria de agendar um horário para fazer minhas unhas. 💅✨`;
   window.open('https://wa.me/5511949863602?text='+encodeURIComponent(msg),'_blank','noopener');
 }
+</script>
+
+
+<script>
+(() => {
+  const gallery = document.querySelector('.portfolio .gallery');
+  if (!gallery || !window.matchMedia('(max-width:620px)').matches ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let active = false;
+  let raf = null;
+  let last = 0;
+  let resumeTimer = null;
+  const speed = 24; // pixels por segundo: movimento lento e contínuo
+
+  const animate = (time) => {
+    if (!active) { raf = null; last = 0; return; }
+    if (!last) last = time;
+    const dt = Math.min((time - last) / 1000, .05);
+    last = time;
+
+    gallery.scrollLeft += speed * dt;
+
+    const max = gallery.scrollWidth - gallery.clientWidth;
+    if (gallery.scrollLeft >= max - 1) gallery.scrollLeft = 0;
+
+    raf = requestAnimationFrame(animate);
+  };
+
+  const start = () => {
+    active = true;
+    if (!raf) raf = requestAnimationFrame(animate);
+  };
+
+  const stop = () => {
+    active = false;
+    last = 0;
+    if (raf) cancelAnimationFrame(raf);
+    raf = null;
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.isIntersecting ? start() : stop());
+  }, { threshold: .18 });
+
+  observer.observe(gallery);
+
+  const pauseForTouch = () => {
+    stop();
+    clearTimeout(resumeTimer);
+  };
+  const resumeAfterTouch = () => {
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => {
+      const r = gallery.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < innerHeight) start();
+    }, 1200);
+  };
+
+  gallery.addEventListener('touchstart', pauseForTouch, {passive:true});
+  gallery.addEventListener('touchend', resumeAfterTouch, {passive:true});
+  gallery.addEventListener('pointerdown', pauseForTouch, {passive:true});
+  gallery.addEventListener('pointerup', resumeAfterTouch, {passive:true});
+})();
 </script>
 
 </body>
